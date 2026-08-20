@@ -1,0 +1,11 @@
+.DS_Store
+.env
+*.xcuserstate
+xcuserdata/
+.build/
+DerivedData/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+.swiftpm/
+node_modules/
+supabase/.temp/
+supabase/.branches/
