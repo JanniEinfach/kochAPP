@@ -125,3 +125,22 @@ Team-Oberflaeche kommt erst, wenn ein realer Betrieb testet.
 
 **Konsequenz.** Etwas mehr Aufwand in den Policies, dafuer kein Rewrite.
 Der Test `20_rls.sql` deckt Teamfaelle bereits ab, obwohl noch keine UI existiert.
+
+## ADR-9 Betriebsmodell: Cloud bis TestFlight, danach eigene Hardware
+
+**Kontext.** Vorhanden ist ein Windows-VPS in Deutschland mit fester IP.
+Der Wunsch nach Unabhaengigkeit von einem Cloud-Anbieter ist berechtigt.
+Gleichzeitig sind bereits zwei fruehere Server dieses Projektumfelds
+ausgefallen, und abfotografierte Familienrezepte sind nicht wiederherstellbar.
+
+**Entscheidung.** Supabase Cloud in der EU-Region bis einschliesslich
+TestFlight. Danach Umzug auf eigene Hardware, dann aber auf Linux, nicht
+Windows: die Supabase-Bausteine sind Linux-Container und brauchen auf Windows
+Server verschachtelte Virtualisierung, die auf VPS haeufig fehlt.
+
+MariaDB wird nicht verwendet. Begruendung in `docs/SELFHOSTING.md`.
+
+**Konsequenz.** Abhaengigkeit von einem Anbieter bis zum Umzug, dafuer kein
+Betriebsaufwand in der Bauphase. Der Umzug bleibt durch ADR-3 auf RemoteKit
+und Hosting beschraenkt. Bedingung: Der Umzug findet vor breiter Verteilung
+statt, weil ausgelieferte Installationen sonst auf die alte Instanz zeigen.
