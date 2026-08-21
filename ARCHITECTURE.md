@@ -14,7 +14,8 @@ Arbeitstitel. Der Produktname steht an genau einer Stelle:
 | RLS-Policies und Tests | fertig, 16 Pruefungen gruen |
 | Seeds: Allergene, Taxonomie, Quellen | fertig |
 | Mengenparser, Portionsskalierung | fertig, 58 Unit-Tests gruen |
-| Xcode-Projekt, App-Target | offen |
+| Xcode-Projekt, App-Target, Design-Tokens | fertig, laeuft im Simulator |
+| Privacy Manifest, Zweckbindungstexte | fertig |
 | Auth, Sync, Scan, Kochmodus, Lernmodul | offen |
 
 ## Was v1 ist und was nicht
@@ -26,6 +27,22 @@ Fachrechnen-Generator, Berichtsheft-Entwuerfe.
 Nicht enthalten, jeweils mit Begruendung in DECISIONS.md: oeffentliche Rezepte
 (ADR-7), Fremdrezept-Feed (ADR-6), Team-Oberflaeche (ADR-8), Pruefungssimulator
 und Skill-Tree (Contentaufwand ohne Nutzerbasis), Einkaufsliste und Meal-Planner.
+
+## Gestaltung
+
+Zwei Farbwelten, eine App. Das Kochbuch ist warm und papiernah, Grundton ein
+warmes Off-White statt Weiss, Handlungsfarbe Terrakotta. Die Lernkueche ist
+kuehl und sachlich, Handlungsfarbe Petrol. Die Reiterleiste faerbt sich beim
+Wechsel um. Grund: es sind zwei Taetigkeiten, Kochen und Lernen, und sie sollen
+sich unterschiedlich anfuehlen, ohne dass die App in zwei Apps zerfaellt.
+
+Rezepttitel und Schritttexte laufen in einer Serifenschrift, weil sie gelesen
+und nicht bedient werden. Alles Bedienbare ist serifenlos. Der Kochmodus hat
+eine eigene, deutlich groessere Schriftskala statt einer hochskalierten
+Detailansicht: gelesen wird aus zwei Metern, mit fettigen Fingern.
+
+Kein automatischer Dunkelmodus als Standardlook. Er existiert und ist gepflegt,
+ist aber die Variante und nicht die Absicht: gekocht wird bei Tageslicht.
 
 ## Schichten
 
@@ -123,6 +140,16 @@ Der Client hat auf `usage_quota` nur Leserecht.
 ```
 scripts/test-migrations.sh          Migrationen, Seeds, RLS-Tests gegen Postgres 17
 cd Packages/CoreKit && swift test   Einheiten- und Parsertests
+scripts/run-simulator.sh            App bauen, installieren, starten
+scripts/run-simulator.sh learning   dito, startet direkt im Lernbereich
 ```
 
-Beide muessen vor jedem Commit gruen sein.
+Die ersten beiden muessen vor jedem Commit gruen sein.
+
+`Lernkueche.xcodeproj` wird von XcodeGen aus `project.yml` erzeugt und ist
+nicht eingecheckt. Nach Aenderungen an `project.yml` oder beim ersten Auschecken:
+`xcodegen generate`.
+
+Der Startreiter laesst sich ueber die Umgebungsvariable `LK_INITIAL_TAB`
+vorwaehlen (`cookbook`, `search`, `learning`, `profile`). Das ist fuer
+automatisierte Screenshots und UI-Tests gedacht, nicht fuer den Alltag.

@@ -1,0 +1,4 @@
+#include "Shared.xcconfig"
+
+SUPABASE_URL = $(LK_SUPABASE_URL)
+SUPABASE_ANON_KEY = $(LK_SUPABASE_ANON_KEY)
