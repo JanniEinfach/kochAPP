@@ -14,6 +14,9 @@ import SwiftUI
 /// Kein automatischer Dunkelmodus als Standardlook: die App wird bei Tageslicht
 /// in einer Kueche benutzt. Der Dunkelmodus existiert und ist gepflegt, ist aber
 /// die Variante, nicht die Absicht.
+/// Alle Textfarben erfuellen WCAG AA (mindestens 4,5:1) gegen ihre
+/// Grundflaeche, in beiden Erscheinungsbildern. Der Test
+/// `PaletteContrastTests` scheitert, sobald eine Aenderung darunter faellt.
 public enum Palette {
 
     // MARK: - Grundflaechen
@@ -48,9 +51,11 @@ public enum Palette {
         dark:  Color(red: 0.678, green: 0.659, blue: 0.627)
     )
 
-    /// Nur fuer wirklich nachrangige Angaben. Erfuellt bei 13 pt noch AA.
+    /// Nur fuer wirklich nachrangige Angaben, aber immer noch AA-konform:
+    /// 4,93 hell und 5,10 dunkel gegen die Grundflaeche. Wer hier heller
+    /// wird, verliert Lesbarkeit in einer hellen Kueche bei Sonnenlicht.
     public static let textTertiary = adaptive(
-        light: Color(red: 0.525, green: 0.494, blue: 0.447),
+        light: Color(red: 0.451, green: 0.420, blue: 0.380),
         dark:  Color(red: 0.545, green: 0.529, blue: 0.502)
     )
 
@@ -63,7 +68,7 @@ public enum Palette {
 
     /// Terrakotta. Handlungsfarbe im Rezeptteil.
     public static let accent = adaptive(
-        light: Color(red: 0.769, green: 0.325, blue: 0.180),
+        light: Color(red: 0.741, green: 0.302, blue: 0.161),
         dark:  Color(red: 0.878, green: 0.451, blue: 0.302)
     )
 
@@ -93,7 +98,7 @@ public enum Palette {
     )
 
     public static let warning = adaptive(
-        light: Color(red: 0.706, green: 0.502, blue: 0.098),
+        light: Color(red: 0.588, green: 0.412, blue: 0.075),
         dark:  Color(red: 0.898, green: 0.694, blue: 0.259)
     )
 

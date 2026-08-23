@@ -23,6 +23,19 @@ packages:
   DesignSystem:
     path: Packages/DesignSystem
 
+schemes:
+  Lernkueche:
+    build:
+      targets:
+        Lernkueche: all
+        LernkuecheTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - LernkuecheTests
+
 targets:
   Lernkueche:
     type: application
@@ -61,3 +74,15 @@ targets:
           Zum Hinzufügen vorhandener Fotos zu deinen Rezepten und
           Kochprotokollen.
         ITSAppUsesNonExemptEncryption: false
+
+  LernkuecheTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: AppTests
+    dependencies:
+      - target: Lernkueche
+      - package: DesignSystem
+        product: DesignSystem
+      - package: CoreKit
+        product: CoreUnits
