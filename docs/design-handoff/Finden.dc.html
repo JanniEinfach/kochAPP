@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;-webkit-font-smoothing:antialiased;
+--sf:-apple-system,"SF Pro Text",system-ui,sans-serif;
+--ny:ui-serif,"New York",Georgia,serif;
+--bg:#FAF8F4;--raised:#FFFEFC;--sunk:#F2EFE9;--t1:#1D1914;--t2:#60584D;--t3:#736B61;--rule:#E0DBD3;
+--A:#BD4D29;--ASoft:#F8E8E0;--B:#1B656F;--BSoft:#E2EFF0;
+--ok:#387942;--warn:#8A6011;--err:#AA2E28;
+--okSoft:rgba(56,121,66,.10);--warnSoft:rgba(138,96,17,.11);--errSoft:rgba(170,46,40,.09);
+--onA:#FFFFFF;--onB:#FFFFFF;--onWarn:#FFFFFF;--bgFade:rgba(250,248,244,0);
+--key:#FFFFFF;--keyBg:#D5D0C8;--keyInk:#000000;--scrim:rgba(29,25,20,.40);
+--paper:#FFFEFC;--paperInk:#1D1914;--paperLine:rgba(29,25,20,.20)}
+a{color:var(--A);text-decoration:none}
+a:hover{color:var(--t1)}
+</style>
+</helmet>
+<div data-screen-label="06 Finden" style="width:393px;height:852px;position:relative;overflow:hidden;background:var(--bg);color:var(--t1);font-family:var(--sf);display:flex;flex-direction:column">
+
+  <div style="height:54px;flex:none;position:relative;display:flex;align-items:center;justify-content:space-between;padding:0 24px">
+    <div style="font-family:var(--sf);font-size:15px;font-weight:600;font-variant-numeric:tabular-nums">15:42</div>
+    <div style="position:absolute;left:50%;top:11px;transform:translateX(-50%);width:104px;height:32px;border-radius:14px;background:#000000"></div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 4.2a10.5 10.5 0 0114 0M3.6 6.9a6.8 6.8 0 018.8 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><circle cx="8" cy="10" r="1.5" fill="currentColor"></circle></svg>
+      <div style="width:25px;height:12px;border-radius:3.5px;border:1.3px solid currentColor;padding:1.5px;opacity:.9"><div style="width:78%;height:100%;border-radius:1.5px;background:currentColor"></div></div>
+    </div>
+  </div>
+
+  <div style="flex:1;min-height:0;overflow:hidden;padding:4px 20px 0;display:flex;flex-direction:column">
+
+    <div style="flex:none;font-family:var(--ny);font-size:32px;line-height:38px;font-weight:600;letter-spacing:-.5px">Finden</div>
+
+    <div style="margin-top:10px;flex:none;height:44px;border-radius:14px;background:var(--sunk);border:1px solid var(--rule);display:flex;align-items:center;gap:9px;padding:0 12px">
+      <svg width="16" height="16" viewBox="0 0 22 22" fill="none" style="color:var(--t2)"><circle cx="9.4" cy="9.4" r="7.1" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.6 14.6l5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path></svg>
+      <span style="flex:1;font-family:var(--sf);font-size:17px;line-height:1;font-weight:400">Rindsrouladen</span>
+      <div style="width:20px;height:20px;border-radius:6px;background:var(--t2);display:flex;align-items:center;justify-content:center">
+        <svg width="9" height="9" viewBox="0 0 10 10" fill="none" style="color:var(--raised)"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+      </div>
+    </div>
+
+    <div style="margin-top:10px;flex:none;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:var(--sunk);border:1px solid var(--rule);border-radius:14px;padding:3px;height:38px">
+      <div style="border-radius:6px;background:var(--raised);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:14px;line-height:1;font-weight:600">Alle</div>
+      <div style="border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:14px;line-height:1;font-weight:500;color:var(--t2)">Eigene</div>
+      <div style="border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:14px;line-height:1;font-weight:500;color:var(--t2)">Team</div>
+      <div style="border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:14px;line-height:1;font-weight:500;color:var(--t2)">Extern</div>
+    </div>
+
+    <div style="margin-top:12px;flex:none;display:flex;align-items:baseline;justify-content:space-between">
+      <div style="font-family:var(--sf);font-size:10px;line-height:1;font-weight:600;letter-spacing:.09em;color:var(--t3)">17 TREFFER · EIGENE UND TEAM ZUERST</div>
+      <div style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:500;color:var(--A)">Relevanz</div>
+    </div>
+
+    <div style="margin-top:10px;flex:none;display:flex;flex-direction:column;gap:10px">
+
+      <div style="display:flex;background:var(--raised);border:1px solid var(--rule);border-radius:14px;overflow:hidden">
+          <div style="flex:1;padding:11px 14px 12px">
+          <div style="font-family:var(--sf);font-size:18px;line-height:22px;font-weight:600">Rindsrouladen</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:5px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" style="color:var(--A)"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.6"></circle><path d="M4.2 7.2l2 2 3.6-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:600;color:var(--A)">Eigenes Rezept</span>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:400;color:var(--t2)">· zuletzt gekocht 12.08.</span>
+          </div>
+          <div style="margin-top:9px;display:flex;align-items:baseline;justify-content:space-between">
+            <div style="display:flex;align-items:baseline;gap:13px">
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">4</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">Pers.</span></div>
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">1:55</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">h</span></div>
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">160</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">°C</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:var(--t1)"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>
+              <span style="font-family:var(--ny);font-size:14px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">4,8</span>
+              <span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">eigen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;background:var(--raised);border:1px solid var(--rule);border-radius:14px;overflow:hidden">
+          <div style="flex:1;padding:11px 14px 12px">
+          <div style="font-family:var(--sf);font-size:18px;line-height:22px;font-weight:600">Rindsrouladen · Adler-Standard</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:5px">
+            <svg width="13" height="11" viewBox="0 0 16 13" fill="none" style="color:var(--t1)"><circle cx="5.4" cy="4" r="2.6" stroke="currentColor" stroke-width="1.5"></circle><path d="M1 12c.5-2.3 2.3-3.6 4.4-3.6S9.3 9.7 9.8 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M11 3.2a2.4 2.4 0 010 4.4M12.6 12c-.2-1.4-.7-2.4-1.4-3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:600">Team Adler</span>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:400;color:var(--t2)">· von M. Adler, Ausbilderin</span>
+          </div>
+          <div style="margin-top:9px;display:flex;align-items:baseline;justify-content:space-between">
+            <div style="display:flex;align-items:baseline;gap:13px">
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">10</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">Pers.</span></div>
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">2:10</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">h</span></div>
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">160</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">°C</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <div style="display:flex;gap:2px">
+                <div style="width:9px;height:6px;border-radius:2px;background:var(--t1)"></div>
+                <div style="width:9px;height:6px;border-radius:2px;background:var(--t1)"></div>
+                <div style="width:9px;height:6px;border-radius:2px;background:var(--t1)"></div>
+                <div style="width:9px;height:6px;border-radius:2px;background:var(--rule)"></div>
+                <div style="width:9px;height:6px;border-radius:2px;background:var(--rule)"></div>
+              </div>
+              <span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">Stufe 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;background:var(--raised);border:1px solid var(--rule);border-radius:14px;overflow:hidden">
+        <div style="width:4px;background:var(--t2);flex:none"></div>
+        <div style="flex:1;padding:11px 14px 12px">
+          <div style="font-family:var(--sf);font-size:18px;line-height:22px;font-weight:600">Rindsrouladen klassisch</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:5px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" style="color:var(--t2)"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.6"></circle><path d="M1 7h12M7 1c1.7 1.8 2.6 3.8 2.6 6S8.7 11.2 7 13c-1.7-1.8-2.6-3.8-2.6-6S5.3 2.8 7 1z" stroke="currentColor" stroke-width="1.3"></path></svg>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:600;color:var(--t2)">Extern · chefkoch.de</span>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:400;color:var(--t2)">· nicht geprüft</span>
+          </div>
+          <div style="margin-top:9px;display:flex;align-items:baseline;justify-content:space-between">
+            <div style="display:flex;align-items:baseline;gap:13px">
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">4</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">Pers.</span></div>
+              <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">2:00</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">h</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="color:var(--t2)"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"></path></svg>
+              <span style="font-family:var(--ny);font-size:14px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums;color:var(--t2)">4,5</span>
+              <span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">Quelle · 104</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;background:var(--raised);border:1px solid var(--rule);border-radius:14px;overflow:hidden">
+        <div style="width:4px;background:var(--t2);flex:none"></div>
+        <div style="flex:1;padding:11px 14px 12px">
+          <div style="font-family:var(--sf);font-size:18px;line-height:22px;font-weight:600">Rheinische Rinderrouladen</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:5px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" style="color:var(--t2)"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.6"></circle><path d="M1 7h12M7 1c1.7 1.8 2.6 3.8 2.6 6S8.7 11.2 7 13c-1.7-1.8-2.6-3.8-2.6-6S5.3 2.8 7 1z" stroke="currentColor" stroke-width="1.3"></path></svg>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:600;color:var(--t2)">Extern · per URL importiert</span>
+          </div>
+          <div style="margin-top:9px;display:flex;align-items:baseline;gap:13px">
+            <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">6</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">Pers.</span></div>
+            <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">2:30</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;background:var(--raised);border:1px solid var(--rule);border-radius:14px;overflow:hidden">
+        <div style="width:4px;background:var(--t2);flex:none"></div>
+        <div style="flex:1;padding:11px 14px 12px">
+          <div style="font-family:var(--sf);font-size:18px;line-height:22px;font-weight:600">Rouladen vom Schwein</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:5px">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" style="color:var(--t2)"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.6"></circle><path d="M1 7h12M7 1c1.7 1.8 2.6 3.8 2.6 6S8.7 11.2 7 13c-1.7-1.8-2.6-3.8-2.6-6S5.3 2.8 7 1z" stroke="currentColor" stroke-width="1.3"></path></svg>
+            <span style="font-family:var(--sf);font-size:13px;line-height:1;font-weight:600;color:var(--t2)">Extern · chefkoch.de</span>
+          </div>
+          <div style="margin-top:9px;display:flex;align-items:baseline;gap:13px">
+            <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">4</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">Pers.</span></div>
+            <div style="display:flex;align-items:baseline;gap:3px"><span style="font-family:var(--ny);font-size:16px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums">1:30</span><span style="font-family:var(--sf);font-size:11px;line-height:1;font-weight:500;color:var(--t2)">h</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;padding:0 20px">
+    <div style="height:64px;border-radius:24px;background:var(--raised);border:1px solid var(--rule);display:grid;grid-template-columns:repeat(5,1fr);align-items:center">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--t2)">
+        <svg width="22" height="20" viewBox="0 0 24 22" fill="none"><path d="M2 2.6h6.6c1.9 0 3.4 1.4 3.4 3.2v13.6c0-1.5-1.5-2.7-3.4-2.7H2zM22 2.6h-6.6c-1.9 0-3.4 1.4-3.4 3.2v13.6c0-1.5 1.5-2.7 3.4-2.7H22z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg>
+        <span style="font-family:var(--sf);font-size:10px;line-height:1;font-weight:500">Kochbuch</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--A)">
+        <svg width="22" height="20" viewBox="0 0 22 22" fill="none"><circle cx="9.4" cy="9.4" r="7.1" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.6 14.6l5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path></svg>
+        <span style="font-family:var(--sf);font-size:10px;line-height:1;font-weight:600">Finden</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--t2)">
+        <svg width="22" height="20" viewBox="0 0 22 22" fill="none"><path d="M2 7V4.4c0-1.3 1.1-2.4 2.4-2.4H7M15 2h2.6c1.3 0 2.4 1.1 2.4 2.4V7M20 15v2.6c0 1.3-1.1 2.4-2.4 2.4H15M7 20H4.4A2.4 2.4 0 012 17.6V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><circle cx="11" cy="11" r="3.2" stroke="currentColor" stroke-width="1.7"></circle></svg>
+        <span style="font-family:var(--sf);font-size:10px;line-height:1;font-weight:500">Scannen</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--t2)">
+        <svg width="24" height="20" viewBox="0 0 24 20" fill="none"><path d="M12 2L22 6.6l-10 4.6L2 6.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M6 9v5.2c0 1.9 2.7 3.4 6 3.4s6-1.5 6-3.4V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+        <span style="font-family:var(--sf);font-size:10px;line-height:1;font-weight:500">Lernen</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--t2)">
+        <svg width="24" height="20" viewBox="0 0 24 19" fill="none"><circle cx="8.6" cy="6" r="3.7" stroke="currentColor" stroke-width="1.7"></circle><path d="M1.8 17c.7-3.4 3.4-5.3 6.8-5.3s6.1 1.9 6.8 5.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M16.6 4.6a3.7 3.7 0 010 6.6M19 17c-.3-2.1-1-3.6-2.1-4.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+        <span style="font-family:var(--sf);font-size:10px;line-height:1;font-weight:500">Team</span>
+      </div>
+    </div>
+    <div style="height:34px;display:flex;align-items:center;justify-content:center">
+      <div style="width:138px;height:5px;border-radius:3px;background:var(--t1);opacity:.9"></div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:393,&quot;height&quot;:852}}"></script>
+</body>
+</html>

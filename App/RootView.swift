@@ -1,90 +1,139 @@
 import SwiftUI
 import DesignSystem
 
-/// Die vier Bereiche der App.
+/// Die fünf Bereiche der App.
 ///
-/// Bewusst vier und nicht fuenf: die Lernkueche ist ein eigener Reiter und
-/// nicht ein Unterpunkt im Profil. Wer sie versteckt, macht aus dem
-/// Unterscheidungsmerkmal ein Zusatzfeature.
+/// Reihenfolge und Zuschnitt folgen dem Gestaltungs-Handoff in
+/// `docs/design-handoff/`. "Finden" trägt die Rolle `.search` und wird von
+/// iOS dadurch eigenständig platziert und behandelt -- das ist die native
+/// Konvention und sieht auf jedem Systemstand richtig aus, statt eine
+/// Suchlupe an eine feste Position zu zwingen.
 struct RootView: View {
-    @State private var selection: Tab = Tab.initialFromEnvironment
+    @State private var selection: Tabs = Tabs.initialFromEnvironment
 
-    /// Startreiter ueber eine Umgebungsvariable waehlbar.
-    /// Wird fuer automatisierte Screenshots und UI-Tests gebraucht, damit man
-    /// nicht jeden Bereich per Hand ansteuern muss. Im normalen Start ohne
-    /// gesetzte Variable ist das Kochbuch der Einstieg.
+    enum Tabs: String, Hashable {
+        case cookbook, scan, learning, team, search
 
-    enum Tab: String, Hashable {
-        case cookbook, search, learning, profile
-
-        static var initialFromEnvironment: Tab {
+        static var initialFromEnvironment: Tabs {
             guard let raw = ProcessInfo.processInfo.environment["LK_INITIAL_TAB"],
-                  let tab = Tab(rawValue: raw) else { return .cookbook }
+                  let tab = Tabs(rawValue: raw) else { return .cookbook }
             return tab
         }
     }
 
     var body: some View {
         TabView(selection: $selection) {
-            Tab.cookbook.destination
-                .tabItem { Label("Kochbuch", systemImage: "book.closed") }
-                .tag(Tab.cookbook)
+            Tab("Kochbuch", systemImage: "book", value: Tabs.cookbook) {
+                CookbookPlaceholder()
+            }
 
-            Tab.search.destination
-                .tabItem { Label("Suchen", systemImage: "magnifyingglass") }
-                .tag(Tab.search)
+            Tab("Scannen", systemImage: "doc.text.viewfinder", value: Tabs.scan) {
+                ScanPlaceholder()
+            }
 
-            Tab.learning.destination
-                .tabItem { Label("Lernen", systemImage: "graduationcap") }
-                .tag(Tab.learning)
+            Tab("Lernen", systemImage: "graduationcap", value: Tabs.learning) {
+                LearningPlaceholder()
+            }
 
-            Tab.profile.destination
-                .tabItem { Label("Profil", systemImage: "person.crop.circle") }
-                .tag(Tab.profile)
+            Tab("Team", systemImage: "person.2", value: Tabs.team) {
+                TeamPlaceholder()
+            }
+
+            Tab(value: Tabs.search, role: .search) {
+                SearchPlaceholder()
+            }
         }
-        // Der Lernbereich faerbt sich um: warm im Kochbuch, kuehl im Lernen.
-        .tint(selection == .learning ? Palette.learning : Palette.accent)
+        // Die Leiste behält ihre Farbe über alle Bereiche hinweg.
+        //
+        // Vorher wechselte sie beim Sprung in den Lernbereich auf Petrol.
+        // Das sah in der Vorschau richtig aus und war in der Hand falsch:
+        // ein Wechsel der Tönung baut die Leiste neu auf, und unter Liquid
+        // Glass wird daraus ein sichtbarer Sprung bei jedem Reiterwechsel.
+        //
+        // Die Leiste gehört ohnehin der App und nicht dem Bereich. Die
+        // Zweifarbigkeit lebt weiter, aber dort wo sie hingehört: in den
+        // Inhalten. Der Lernbereich färbt seine eigenen Elemente petrol.
+        .tint(Palette.accent)
+        .minimizingTabBarOnScroll()
     }
 }
 
-private extension RootView.Tab {
+private extension View {
+    /// Lässt die Leiste beim Scrollen schrumpfen und Inhalt freigeben.
+    ///
+    /// Systemverhalten ab iOS 26, wir schalten es nur scharf. Auf iOS 18 bis 25
+    /// gibt es weder das Verhalten noch die zugehörige Leiste, dort passiert
+    /// nichts -- die App bleibt lauffähig, statt das Mindestsystem anzuheben.
     @ViewBuilder
-    var destination: some View {
-        switch self {
-        case .cookbook:
-            PlaceholderScreen(
-                title: "Kochbuch",
-                message: "Hier stehen deine Rezepte.",
-                systemImage: "book.closed",
-                accent: Palette.accent
-            )
-        case .search:
-            PlaceholderScreen(
-                title: "Suchen",
-                message: "Suche nach Zutaten, Gerichten oder Techniken.",
-                systemImage: "magnifyingglass",
-                accent: Palette.accent
-            )
-        case .learning:
-            PlaceholderScreen(
-                title: "Lernküche",
-                message: "Fachbegriffe, Karteikarten und Fachrechnen.",
-                systemImage: "graduationcap",
-                accent: Palette.learning
-            )
-        case .profile:
-            PlaceholderScreen(
-                title: "Profil",
-                message: "Konto, Einstellungen und Berichtsheft.",
-                systemImage: "person.crop.circle",
-                accent: Palette.accent
-            )
+    func minimizingTabBarOnScroll() -> some View {
+        if #available(iOS 26.0, *) {
+            self.tabBarMinimizeBehavior(.onScrollDown)
+        } else {
+            self
         }
     }
 }
 
-/// Geruest-Ansicht bis der jeweilige Bereich gebaut ist.
-/// Sie sagt, was hier entstehen wird, statt eine leere Flaeche zu zeigen.
+// MARK: - Vorläufige Bereichsinhalte
+
+private struct CookbookPlaceholder: View {
+    var body: some View {
+        PlaceholderScreen(
+            title: "Kochbuch",
+            message: "Hier stehen deine Rezepte.",
+            systemImage: "book",
+            accent: Palette.accent
+        )
+    }
+}
+
+private struct SearchPlaceholder: View {
+    var body: some View {
+        PlaceholderScreen(
+            title: "Finden",
+            message: "Suche nach Zutaten, Gerichten oder Techniken.",
+            systemImage: "magnifyingglass",
+            accent: Palette.accent
+        )
+    }
+}
+
+private struct ScanPlaceholder: View {
+    var body: some View {
+        PlaceholderScreen(
+            title: "Scannen",
+            message: "Fotografiere ein Papierrezept ab.",
+            systemImage: "doc.text.viewfinder",
+            accent: Palette.accent
+        )
+    }
+}
+
+private struct LearningPlaceholder: View {
+    var body: some View {
+        PlaceholderScreen(
+            title: "Lernküche",
+            message: "Fachbegriffe, Karteikarten und Fachrechnen.",
+            systemImage: "graduationcap",
+            // Der Lernbereich färbt seinen Inhalt, nicht die Leiste.
+            accent: Palette.learning
+        )
+    }
+}
+
+private struct TeamPlaceholder: View {
+    var body: some View {
+        PlaceholderScreen(
+            title: "Team",
+            message: "Aufgaben, Berichtsheft und Rückmeldungen.",
+            systemImage: "person.2",
+            accent: Palette.learning
+        )
+    }
+}
+
+/// Gerüst-Ansicht, bis der jeweilige Bereich gebaut ist.
+/// Sagt, was hier entstehen wird, statt eine leere Fläche zu zeigen.
 private struct PlaceholderScreen: View {
     let title: String
     let message: String
@@ -98,8 +147,12 @@ private struct PlaceholderScreen: View {
 
                 VStack(spacing: Spacing.inner) {
                     Image(systemName: systemImage)
-                        .font(.system(size: 44, weight: .light))
+                        // Die Größe kommt aus einer Textstufe statt aus einer
+                        // festen Punktzahl. Dadurch wächst das Zeichen mit der
+                        // Systemschrift mit und behält sein optisches Gewicht.
+                        .font(.system(.largeTitle, weight: .light))
                         .foregroundStyle(accent)
+                        .symbolRenderingMode(.hierarchical)
 
                     Text(message)
                         .font(Typography.callout())

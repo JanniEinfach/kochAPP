@@ -29,12 +29,14 @@ schemes:
       targets:
         Lernkueche: all
         LernkuecheTests: [test]
+        LernkuecheUITests: [test]
     run:
       config: Debug
     test:
       config: Debug
       targets:
         - LernkuecheTests
+        - LernkuecheUITests
 
 targets:
   Lernkueche:
@@ -86,3 +88,11 @@ targets:
         product: DesignSystem
       - package: CoreKit
         product: CoreUnits
+
+  LernkuecheUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: AppUITests
+    dependencies:
+      - target: Lernkueche

@@ -30,6 +30,17 @@ und Skill-Tree (Contentaufwand ohne Nutzerbasis), Einkaufsliste und Meal-Planner
 
 ## Gestaltung
 
+Verbindliche Vorlage ist das Handoff in `docs/design-handoff/` (19 Screens als
+`.dc.html`). Es verwendet dieselben Farbwerte wie `Palette.swift` und dieselbe
+Schriftaufteilung. Bei Abweichungen gilt das Handoff, ausser bei Kontrasten:
+dort gilt der Test.
+
+Fuenf Bereiche: Kochbuch, Scannen, Lernen, Team, Finden. "Finden" traegt die
+Rolle `.search` und wird von iOS eigenstaendig platziert -- ab iOS 26 als
+eigene Glaskapsel rechts neben der Hauptleiste. Das ist Systemkonvention und
+sieht auf kuenftigen Staenden richtig aus, statt eine Lupe an eine feste
+Position zu zwingen.
+
 Zwei Farbwelten, eine App. Das Kochbuch ist warm und papiernah, Grundton ein
 warmes Off-White statt Weiss, Handlungsfarbe Terrakotta. Die Lernkueche ist
 kuehl und sachlich, Handlungsfarbe Petrol. Die Reiterleiste faerbt sich beim
